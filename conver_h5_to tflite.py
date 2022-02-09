@@ -1,4 +1,4 @@
-### from_keras_model_file ###
+### CODE VERSION ###
 import tensorflow as tf
 
 converter = tf.lite.TFLiteConverter.from_keras_model_file('model.h5')    # from_model_file
@@ -21,3 +21,14 @@ tflite_model = converter.convert()
 with open('model.tflite', 'wb') as f:
   f.write(tflite_model)
 
+  
+  
+  
+  
+
+
+  
+### COMMAND LINE VERSION ###
+tflite_convert --keras_model_file=/tmp/mobilenet_keras_model.h5 --output_file=/tmp/mobilenet.tflite    # H5 FILE
+
+tflite_convert --saved_model_dir=/tmp/mobilenet_saved_model --output_file=/tmp/mobilenet.tflite    # SAVED MODEL
