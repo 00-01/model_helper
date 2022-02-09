@@ -31,7 +31,7 @@ model_base_path=/home/z/MODEL/
 model=MVPC10
 model_path=${model_base_path}${model}
 tflite_convert --keras_model_file=${model_path}/model.h5 --output_file=${model_path}/model.tflite    # H5 FILE
-# tflite_convert --saved_model_dir={model_path} --output_file=${model_path}/model.tflite    # SAVED MODEL
+# tflite_convert --saved_model_dir=${model_path} --output_file=${model_path}/model.tflite    # SAVED MODEL
 tflite_convert \
   --input_shape=1,80,80,1 \
   --input_arrays=normalized_input_image_tensor \
