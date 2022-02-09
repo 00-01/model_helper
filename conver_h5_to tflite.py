@@ -23,7 +23,7 @@ with open('model.tflite', 'wb') as f:
 # # (to run your model) result = Squared(5.0) # This prints "25.0"
 # # (to generate a SavedModel) tf.saved_model.save(model, "saved_model_tf_dir")
 # concrete_func = model.__call__.get_concrete_function()
-# converter = tf.lite.TFLiteConverter.from_concrete_functions([concrete_func], model)    # if TensorFlow 2.7 <, pass only first argument: from_concrete_functions([concrete_func])
+# converter = tf.lite.TFLiteConverter.from_concrete_functions([concrete_func], model)  # if TensorFlow 2.7 < current_tf_version, pass only first argument:([concrete_func])
 
 
 ### ============================== COMMAND LINE VERSION ==============================
