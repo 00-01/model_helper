@@ -1,19 +1,20 @@
 ### ============================== CODE VERSION ==============================
 import tensorflow as tf
 
+### 0 ###
 converter = tf.lite.TFLiteConverter.from_keras_model_file('model.h5')    # from_model_file
 
 tflite_model = converter.convert()
 with open('model.tflite', 'wb') as f:
   f.write(tflite_model)
 
-# 1
+### 1 ###
 # converter = tf.lite.TFLiteConverter.from_keras_model(model)    # from_keras_model(model = tf.keras.models.Sequential())
 
-# 2
+### 2 ###
 # converter = tf.lite.TFLiteConverter.from_saved_model('/home/a/model/')    # from_saved_model_path
 
-# 3
+### 3 ###
 # class Squared(tf.Module):    # Create a model using low-level tf.* APIs
 #   @tf.function(input_signature=[tf.TensorSpec(shape=[None], dtype=tf.float32)])
 #   def __call__(self, x):
@@ -24,7 +25,7 @@ with open('model.tflite', 'wb') as f:
 # concrete_func = model.__call__.get_concrete_function()
 # converter = tf.lite.TFLiteConverter.from_concrete_functions([concrete_func], model)    # if TensorFlow 2.7 <, pass only first argument: from_concrete_functions([concrete_func])
 
-  
+
 ### ============================== COMMAND LINE VERSION ==============================
 model_path=/home/z/model
 tflite_convert --keras_model_file=${model_path}/model.h5 --output_file=${model_path}/model.tflite    # H5 FILE
