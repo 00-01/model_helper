@@ -27,13 +27,15 @@ with open('model.tflite', 'wb') as f:
 
 
 ### ============================== COMMAND LINE VERSION ==============================
-model_path=/home/z/model
-tflite_convert --keras_model_file=${model_path}/model.h5 --output_file=${model_path}/model.tflite    # H5 FILE
-# tflite_convert --saved_model_dir=${model_path}/model --output_file=${model_path}/model.tflite    # SAVED MODEL
+model_path=/home/z/MODEL/
+model=MVPC10
+path=${model_path}${model}
+tflite_convert --keras_model_file=${path}/model.h5 --output_file=${path}/model.tflite    # H5 FILE
+# tflite_convert --saved_model_dir={path}/model --output_file=${path}/model.tflite    # SAVED MODEL
 tflite_convert \
   --input_shape=1,80,80,1 \
   --input_arrays=normalized_input_image_tensor \
   --output_arrays=TFLite_Detection_PostProcess,TFLite_Detection_PostProcess:1,TFLite_Detection_PostProcess:2,TFLite_Detection_PostProcess:3 \
   --allow_custom_ops \
   --graph_def_file=/content/models/research/fine_tuned_model/tflite/tflite_graph.pb \
-  --output_file="${model_path}/model.tflite"
+  --output_file="${path}/model.tflite"
