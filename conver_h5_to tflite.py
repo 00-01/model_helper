@@ -29,6 +29,6 @@ with open('model.tflite', 'wb') as f:
 
   
 ### COMMAND LINE VERSION ###
-tflite_convert --keras_model_file=/tmp/mobilenet_keras_model.h5 --output_file=/tmp/mobilenet.tflite    # H5 FILE
-
-tflite_convert --saved_model_dir=/tmp/mobilenet_saved_model --output_file=/tmp/mobilenet.tflite    # SAVED MODEL
+model_path=/home/z/model
+tflite_convert --keras_model_file=${model_path}/model.h5 --output_file=${model_path}/model.tflite    # H5 FILE
+# tflite_convert --saved_model_dir=${model_path}/model --output_file=${model_path}/model.tflite    # SAVED MODEL
