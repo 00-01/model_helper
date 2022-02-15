@@ -2,7 +2,7 @@
 import tensorflow as tf
 
 ### 0 ###
-converter = tf.lite.TFLiteConverter.from_keras_model(model)    # from_keras_model(model = tf.keras.models.Sequential())
+converter = tf.lite.TFLiteConverter.from_saved_model('/home/a/model/')    # from_saved_model_path
 
 tflite_model = converter.convert()
 
@@ -10,7 +10,7 @@ with open('model.tflite', 'wb') as f:
   f.write(tflite_model)
 
 ### 1 ###
-# converter = tf.lite.TFLiteConverter.from_saved_model('/home/a/model/')    # from_saved_model_path
+# converter = tf.lite.TFLiteConverter.from_keras_model(model)    # from_keras_model(model = tf.keras.models.Sequential())
 
 ### 2 ###
 # class Squared(tf.Module):    # Create a model using low-level tf.* APIs
